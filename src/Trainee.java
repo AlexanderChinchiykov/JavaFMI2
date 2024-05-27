@@ -1,6 +1,6 @@
 
 
-public class Trainee implements Observer {
+public class Trainee implements Observer,FoodMenuObserver {
     private String name;
 
     public Trainee(String name) {
@@ -10,6 +10,11 @@ public class Trainee implements Observer {
     @Override
     public void update(TrainingProgram trainingProgram) {
         System.out.println(name + " has been notified of the new training program: " + trainingProgram.execute());
+
+    }
+    @Override
+    public void update(FoodMenu foodMenu) {
+        System.out.println(name + " has received the following food menu: " + foodMenu.getName() + " - " + foodMenu.getDescription());
     }
 
     public String getName() {
